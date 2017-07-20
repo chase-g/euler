@@ -1,4 +1,8 @@
 //Project Euler Problem 6
+/*
+Find the difference between the sum of the squares of
+the first one hundred natural numbers and the square of the sum.
+*/
 var t0 = performance.now();
 var total = 0;
 var squaresSum = 0;
@@ -10,7 +14,6 @@ function makeSumSquares(value){
 function runningTotal(value){
   //add to running total
   total = total + value;
-  console.log(total);
 }
 for(var i = 0; i < 101; i++){
   //recursively call function to square each number
@@ -20,10 +23,9 @@ for(var i = 0; i < 101; i++){
   //if on last call square total
   if(i == 100){
     squaredTotal = total ** 2;
-    console.log(squaredTotal);
     //add together and output answer
     answer = squaredTotal - squaresSum;
-    console.log(answer);
+    console.log("Answer: " + String(answer));
   }
 }
 var t1 = performance.now();
