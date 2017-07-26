@@ -6,7 +6,7 @@ var t0 = performance.now();
 var notPrime = new Array(2000000).fill(false);
 notPrime[0] = true;
 notPrime[1] = true;
-total = 0;
+var total = 0;
 //loop over every number up to limit
 for(var i = 2; i < notPrime.length; i++){
   //check whether i is already in notPrime array
