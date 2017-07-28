@@ -1,5 +1,5 @@
 # Project Euler Problem 4
-# Find the largest palindrome made from the product of two 3-digit numbers.
+# "Find the largest palindrome made from the product of two 3-digit numbers."
 import time
 start = time.time()
 factor1 = [i for i in range(999,100,-1)]
