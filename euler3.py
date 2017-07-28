@@ -26,6 +26,4 @@ def prime(num, factorList):
 #call prime using the list of factors of the number
 prime(number, factors)
 end = time.time()
-print("Speed: ")
-print(end - start)
-
+print("Speed: " + str(end - start))
