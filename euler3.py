@@ -13,7 +13,7 @@ def prime(num, factorList):
     ans = factorList[0]
 #base case, if number is divisible by the potential answer and it's prime
     if num % ans == 0 and ans in primeNums:
-        print(ans)
+        print("Answer: " + str(ans))
         return ans
     elif all(ans % i for i in range(2, ans)):
         primeNums.append(ans)
