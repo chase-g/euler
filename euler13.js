@@ -1,6 +1,6 @@
 //Project Euler 13
-//Work out the first ten digits of the sum of the following
-//one-hundred 50-digit numbers.
+//"Work out the first ten digits of the sum of the following
+//one-hundred 50-digit numbers."
 var numbers = `37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
@@ -105,10 +105,8 @@ var grid = numbers.split('\n');
 for(var i = 0; i < grid.length; i++){
   grid[i] = grid[i].split('').map(Number);
 }
-//console.log(grid);
 /* grid[extra][intra];*/
-total = 0;
-function addMachine(total){
+function addMachine(){
   //loop through each digit
   for(var intra = grid[0].length - 1; intra > 0; intra--){
     total = 0;
@@ -118,19 +116,20 @@ function addMachine(total){
     //add that digit to the running total of those digits
       total += grid[extra][intra];
     }
-//multiply to reduce total to amount to be added to next higher digit
+    //multiply to reduce total to amount to be added to next higher digit
     total *= .1;
-  //add the total to the next digit up of the first number
+    //add the total to the next digit up of the first number
     grid[0][intra - 1] += total;
     //if function has arrived at the last digit
     if(intra == 1){
       sum = 0;
-      //add the
+      //add together all the first digits
       for(var i = 0; i < grid.length; i++){
         sum += grid[i][0];
       }
+      //log the sum of the first digits, changed to present the first 10
       console.log("First ten digits: " + Math.round(sum * 10000000));
     }
 }
 }
-addMachine(0)
+addMachine()
