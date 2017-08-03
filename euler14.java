@@ -1,5 +1,3 @@
-import java.math.*;
-import java.util.*;
 /**
  * Project Euler 14
  * Longest Collatz Sequence under one million
