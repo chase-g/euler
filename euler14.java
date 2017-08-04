@@ -9,7 +9,7 @@
  */
 public class euler14
 {
-	public static int record = 0;
+	private static int record = 0;
    public static void main(String[] args)
    {
 //start timer
