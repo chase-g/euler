@@ -10,6 +10,7 @@
 public class euler14
 {
 	private static int record = 0;
+	private static int recordHolder = 0;
    public static void main(String[] args)
    {
 //start timer
@@ -26,22 +27,28 @@ public class euler14
 		   if(collatz % 2 == 0) {
 			  collatz = collatz / 2; 
 			  counter++;
-//if it reaches one and counter exceeds existing record, set and print new record
+//if it reaches one and counter exceeds existing record
 			  if(counter > record && collatz == 1) {
+//set new record and record holder
 				   record = counter;
-				   System.out.println(i + ", current longest chain: " + record);
+				   recordHolder = i;
 			   }
 //if odd, perform operation and increment counter
 		   } else {
 			   collatz = (3 * collatz) + 1;
 			   counter++;
-//if it reaches one and counter exceeds existing record, set and print new record
+//if it reaches one and counter exceeds existing record
 			   if(counter > record && collatz == 1) {
+//set new record and record holder
 				   record = counter;
-				   System.out.println(i + "--current longest chain: " + record);
+				   recordHolder = i; 
 			   }
 		   }
 	   }
+//After the final iteration, print the record holder and record
+	   if(i == 999999){
+		   System.out.println(recordHolder + " has the longest collatz sequence under 1 million: " + record); 
+		   }
     }
 //end timer and output speed
 final long endTime = System.currentTimeMillis();
