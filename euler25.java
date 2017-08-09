@@ -1,7 +1,7 @@
 /**
- * Project Euler 17
- * "If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?"
- * @version August 6, 2017
+ * Project Euler 25
+ * "What is the index of the first term in the Fibonacci sequence to contain 1000 digits?"
+ * @version August 9, 2017
  * @author chase-g
  */
 import java.math.BigInteger;
