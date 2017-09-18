@@ -38,3 +38,4 @@ for(var i = tri.length - 2; i >= 0; i--){
 console.log("Maximum total: " + tri[0][0]);
 var t1 = performance.now();
 console.log("Speed: " + String(t1 - t0));
+//credit for algorithm (in python) http://code.jasonbhill.com/python/project-euler-problem-18/
