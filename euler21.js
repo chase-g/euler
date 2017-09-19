@@ -11,7 +11,7 @@ if(num % i == 0){numarray.push(i)}
 var result = numarray.reduce(function(accumulator, currentValue) {
     return accumulator + currentValue;
 });
-//stores the sum of the factors in an array
+//stores the sum of the factors in an array without the number itself
 bigarray.push(result - (num));
 }
 //loops through each number in the array of factor sums
