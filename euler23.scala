@@ -1,15 +1,17 @@
 /*
  * Project Euler
  * Problem 23
- * Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
+ * "Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers."
 */
 object euler23{
+//start timing
+val t0 = System.nanoTime()
 import scala.collection.mutable.ListBuffer
 import scala.util.control.Breaks._
-
+//List buffer to store abundant numbers
 var abundant = new ListBuffer[Int]();
+//List buffer to store numbers which cannot be formed from the sum of abundant numbers
 var answerList = new ListBuffer[Int]();
-var abundantSums = new ListBuffer[Int]();
 //loop through all numbers up to 28123
 for(i <- 1 to 20161){
 //create list
@@ -48,4 +50,7 @@ for(i <- answerList){
   answer += i;
 }
 println(answer)
+//stop timing and print
+val t1 = System.nanoTime()
+println("Elapsed time: " + (t1 - t0) + "ns")
 }
