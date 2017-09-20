@@ -1,7 +1,8 @@
 /*
-Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
+ * Project Euler
+ * Problem 23
+ * Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 */
-
 object euler23{
 import scala.collection.mutable.ListBuffer
 import scala.util.control.Breaks._
@@ -41,10 +42,6 @@ for(i <- 1 to 20161){
   //then add number to answer list
   if(counter == 0){answerList += i}
 }
-
-//find all factors of each number and find the sum of the factors
-//if the sum is greater than the number, add that number to the list of abundant numbers
-
 //get the sum of all values in the answer list
 var answer: Int = 0;
 for(i <- answerList){
