@@ -28,20 +28,23 @@ def check(num: Int): String = {
 }
 
 def allNums(str: String): Boolean = {
-  if(slice.length < 10) { 
-  val slice = str.toList.map(_.toString).map(_.toInt)
-  } else { return false }
+  var slice = List(0)
+  if(str.length < 10) { 
+  slice = str.toList.map(_.toString).map(_.toInt)
   for(i <- 1 to 9) {
     if(slice.length > 9 | !slice.contains(i)) { return false }
   } 
   return true
+  } else { return false }
 }
 
-var answer = 0
-for(n <- 1 to 1000000){
-  val strAnswer = check(n)
-  if(allNums(strAnswer) & strAnswer.toInt > answer){
-    println(strAnswer)
-    answer = strAnswer.toInt
+def highest(current: Int, record: Int): Int = {
+  val strAnswer = check(current)
+  if(current > 1000000) return record
+  if(strAnswer.length < 10 && strAnswer.toInt > record && allNums(strAnswer)) {
+    highest(current + 1, strAnswer.toInt)
+  } else{
+    highest(current + 1, record)
   }
 }
+highest(9,0)
