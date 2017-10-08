@@ -9,11 +9,8 @@ notPrime[1] = true;
 var prime = [];
 //loop over every number up to limit
 for(var i = 2; i < notPrime.length; i++){
-  //check whether i is already in notPrime array
-  if(notPrime[i] == true){
-    //already in notPrime so do nothing
-  } else{
-//if prime:
+  //if prime:
+  if(notPrime[i] == false){
     //loop through multiples of i and make them true
     for(var n = i + i; n < 150000; n += i){
       //add multiples of i to notPrime array if not there
