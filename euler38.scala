@@ -31,10 +31,7 @@ def allNums(str: String): Boolean = {
   var slice = List(0)
   if(str.length < 10) { 
   slice = str.toList.map(_.toString).map(_.toInt)
-  for(i <- 1 to 9) {
-    if(slice.length > 9 | !slice.contains(i)) { return false }
-  } 
-  return true
+  digits.forall(slice.contains) && slice.length < 10
   } else { return false }
 }
 
