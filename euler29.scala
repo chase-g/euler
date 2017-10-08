@@ -5,4 +5,4 @@
  * October 7, 2017
  */
 val powers = for(i <- 2 to 100; n <- 2 to 100) yield { Math.pow(i, n) }
-val answer = bigList.distinct.length
+val answer = powers.distinct.length
