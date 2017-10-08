@@ -28,9 +28,8 @@ def check(num: Int): String = {
 }
 
 def allNums(str: String): Boolean = {
-  var slice = List(0)
   if(str.length < 10) { 
-  slice = str.toList.map(_.toString).map(_.toInt)
+  val slice = str.toList.map(_.toString).map(_.toInt)
   val digits = (1 to 9).toList
   digits.forall(slice.contains) && slice.length < 10
   } else { return false }
@@ -46,3 +45,4 @@ def highest(current: Int, record: Int): Int = {
   }
 }
 highest(9,0)
+
