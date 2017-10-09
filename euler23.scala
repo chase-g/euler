@@ -3,54 +3,39 @@
  * Problem 23
  * "Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers."
 */
-object euler23{
-//start timing
-val t0 = System.nanoTime()
-import scala.collection.mutable.ListBuffer
-import scala.util.control.Breaks._
-//List buffer to store abundant numbers
-var abundant = new ListBuffer[Int]();
-//List buffer to store numbers which cannot be formed from the sum of abundant numbers
-var answerList = new ListBuffer[Int]();
-//loop through all numbers up to 28123
-for(i <- 1 to 20161){
-//create list
-  var factors = new ListBuffer[Int]();
-  for(n <- 1 to (i-1)){
-//if n is a factor, create list buffer with divisor prepended to prior list
-    if(i % n == 0){factors += n};
-}
-  //create counter to check abundance
-  var sum: Int = 0;
-  //sum the factors
-  for(t <- factors){sum += t}
-  //check whether the factor sum exceeds the numbers
-  if(sum > i){abundant += i}
-//create a counter to check whether any currently existing abundant numbers
-  //can be added up to the number by subtracting each from the number and checking
-  //whether the difference is included in the abundant numbers list
-  //break from the loop when one combination is found to avoid duplicative effort
-  var counter: Int = 0;
-  //breakable loop
-  breakable{
-  for(x <- abundant){
-    //difference
-    var checkable = i - x;
- //if difference is contained in the abundant numbers, increment counter and break
-    if(abundant.contains(checkable)){counter += 1; break}
-  }
-  }
-//if counter has not been incremented after loop completes or breaks,
-  //then add number to answer list
-  if(counter == 0){answerList += i}
-}
-//get the sum of all values in the answer list
-var answer: Int = 0;
-for(i <- answerList){
-  answer += i;
-}
-println(answer)
-//stop timing and print
-val t1 = System.nanoTime()
-println("Elapsed time: " + (t1 - t0) + "ns")
-}
+    val t0 = System.nanoTime()
+    //function to find factors
+    def factors(num: Int) = {
+        val factors = for(i <- 1 to (num - 1) if num % i == 0) yield { i }
+        factors
+    }
+    //function to find sums
+    def sumList(numList: IndexedSeq[Int]) = {
+      val sum = numList.reduceLeft( _ + _ )
+      sum
+    }
+    //function to recursively form list of abundant numbers
+    def abundance(num: Int, currentList: List[Int]): List[Int] = {
+      if(num <= 20161){
+      val numFactors = factors(num)
+      val factorSum = sumList(numFactors)
+      if(factorSum > num) { abundance(num + 1, num :: currentList) }
+      else { abundance(num + 1, currentList) }
+      } else return currentList
+    }
+    //all abundant numbers
+    val abundant = abundance(2, List())
+    //function to create a list of numbers which cannot be formed as the sum of two abundant numbers
+    def notSumAbundant(num: Int, currentList: List[Int]): List[Int] = {
+      val abundantList = abundant.filter(_ < num)
+      if(num <= 20161) { 
+        if(!abundantList.exists(x => abundantList.contains(num - x))) { notSumAbundant(num + 1, num :: currentList) }
+        else { notSumAbundant(num + 1, currentList) }
+     }  else return currentList
+    }
+
+    val answerList = notSumAbundant(1, List())
+    val answer = answerList.reduceLeft(_ + _)
+    val t1 = System.nanoTime()
+    println("Elapsed time: " + (t1 - t0) / 1000000000 + " seconds")
+    println(answer)
