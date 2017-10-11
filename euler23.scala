@@ -3,6 +3,8 @@
  * Problem 23
  * "Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers."
 */
+object euler23 {
+  def main(args: Array[String]): Unit = {
     val t0 = System.nanoTime()
     //function to find factors
     def factors(num: Int) = {
@@ -43,3 +45,5 @@
     val t1 = System.nanoTime()
     println("Elapsed time: " + (t1 - t0) / 1000000000 + " seconds")
     println(answer)
+  }
+}
