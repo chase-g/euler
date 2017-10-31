@@ -23,7 +23,7 @@ object euler41 {
     
      def topIterator(start: Int): Int = {
       if(isPandigital(start) && isPrime(start)) return start
-      else topIterator(start - 1)
+      else topIterator(start - 2)
     }
      
     println(topIterator(7654321))
