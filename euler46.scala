@@ -2,7 +2,7 @@
  * Project Euler 
  * Problem 46
  * "What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?"
- * October 31, 2017
+ * November 1, 2017
  */
 object euler46 {
   def main(args: Array[String]): Unit = {
