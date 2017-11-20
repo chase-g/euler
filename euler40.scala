@@ -8,7 +8,7 @@
  */
 object euler40 {
   def main(args: Array[String]): Unit = {
-    val str = (1 to 100000).map(_.toString).mkString.map(_.toString).map(_.toInt)
+    val str = (1 to 100000).mkString.map(_.toString).map(_.toInt)
     val answer = str(0) * str(9) * str(99) * str(999) * str(9999) * str(99999)
     println("Answer: " + answer)
   }
