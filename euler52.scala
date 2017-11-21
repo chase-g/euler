@@ -2,7 +2,7 @@
  * Project Euler
  * Problem 52
  * "Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits."
- * @version November 19, 2017
+ * @version November 20, 2017
  * @author chase-g
  */
 object euler52 {
