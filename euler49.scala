@@ -27,17 +27,9 @@ object euler49 {
    }
    
     val notPrime = sieve() 
-    val primes = new Array[Int](1000000)
-    def makePrimes(item: Int = 0, next: Int = 0): Unit = {
-      if(item == notPrime.length) print("")
-      else if(notPrime(item) == false) {
-        primes(next) = item
-        makePrimes(item + 1, next + 1)
-      } 
-      else makePrimes(item + 1, next)
-    } 
-    makePrimes()
-    
+
+ //filters out permutation values of the base value which are not prime
+//outputs all prime permutations as a list
     def checkPerms(perms: Array[Int], index: Int = 0, acc: List[Int] = List()): List[Int] = {
       if(index < perms.length){
         if(notPrime(perms(index)) == false) checkPerms(perms, index + 1, perms(index) :: acc)
@@ -46,32 +38,30 @@ object euler49 {
       else acc
     }
     
-    def checkDistance(head: Int, perms: List[Int], index: Int = 1): List[Int] = {
-     /* if(index == perms.length) true
-      else if(Math.abs(perms(index) - perms(index - 1)) == 3330) checkDistance(perms, index + 1)
-      else false*/
-      val numMed = perms.find(x => Math.abs(x - head) == 3330)
-      val numLarge = perms.find(x => Math.abs(x - head) == 6660)
-      val trio = List(head, numMed.getOrElse(0), numLarge.getOrElse(0))
+//finds trio of values which are each 3330 apart starting from the base value
+//and outputs them order, or else outputs zeros if not found
+    def checkDistance(base: Int, perms: List[Int], index: Int = 1): List[Int] = {
+      val numMed = perms.find(x => Math.abs(x - base) == 3330)
+      val numLarge = perms.find(x => Math.abs(x - base) == 6660)
+      val trio = List(base, numMed.getOrElse(0), numLarge.getOrElse(0))
       trio
     } 
     
-    def iterate(item: Int = 0): String = {
-      println(primes(item))
-      if(primes(item) > 999){   
-        val numbers = primes(item).toString.permutations.toArray.map(_.toInt)
+//iterates over each potential value, calls checker functions, and outputs answer which meets criteria
+    def iterate(item: Int = 1001): String = {
+      if(notPrime(item) == false){   
+        val numbers = item.toString.permutations.toArray.map(_.toInt)
           val ans = checkPerms(numbers).sorted
-          if(!checkDistance(primes(item), ans).contains(0) && primes(item) != 1487) {
-            checkDistance(primes(item), ans).mkString
+          if(!checkDistance(item, ans).contains(0) && item != 1487) {
+            checkDistance(item, ans).mkString
           }
-          else iterate(item + 1)
+          else iterate(item + 2)
       } 
-      else iterate(item + 1)
+      else iterate(item + 2)
     }
-    
-    println(iterate(0))
+
+    println(iterate())
     val t1 = System.nanoTime()
     println("Elapsed time: " + (t1 - t0) + " nanoseconds")
   }
 }
-  
