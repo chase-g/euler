@@ -9,7 +9,7 @@
 object euler39 {
   def main(args: Array[String]): Unit = {
 
-    val startMap = (1 to 10000).map(x => (x, 0)).toMap
+    val startMap = (1 to 1001).map(x => (x, 0)).toMap
 
     def pytha(a: Int, b: Int): Double = {
       val c: Double = Math.sqrt((a * a) + (b * b))
@@ -33,7 +33,7 @@ object euler39 {
       else output
     }
 
-    println(iterator(startMap, 3).filterKeys(_ < 1001).maxBy(_._2)._1)
+    println(iterator(startMap, 3).maxBy(_._2)._1)
 
   }
 }
