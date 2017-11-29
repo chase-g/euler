@@ -1,8 +1,8 @@
 /**
  * Project Euler
- * Problem 48
- * "Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000."
- * November 24, 2017
+ * Problem 54
+ * "How many hands does Player 1 win?"
+ * November 28, 2017
  */
 
 object euler54 {
@@ -30,21 +30,6 @@ object euler54 {
         highCard(update1, update2)
       }
     }
-    
-    /*
-    def royalFlush(hands: Array[Array[String]], index: Int = 0): Int = {
-      val hn1 = hands(index).slice(0, 5).map(_.toString).map(x => x(0).toString)
-      val hn2 = hands(index).slice(5, 11).map(_.toString).map(x => x(0).toString)
-      val hs1 = hands(index).slice(0, 5).map(_.toString).map(x => x(1).toString)
-      val hs2 = hands(index).slice(5, 11).map(_.toString).map(x => x(1).toString)
-      if (hn1.intersect(Array("A", "K", "Q", "J", "T")).length == 5) {
-        if (hs1.filter(x => x == hs1(0)).length == 5) return 1
-      }
-      if (hn2.intersect(Array("A", "K", "Q", "J", "T")).length == 5) {
-        if (hs2.filter(x => x == hs2(0)).length == 5) return 2
-        else 0
-      } else return 0
-    }*/
     
     def royalFlush(hand1: Array[Int], hand2: Array[Int], suit1: Array[String], suit2: Array[String]): Int = {
       if (hand1.intersect(Array(14, 13, 12, 11, 10)).length == 5) {
@@ -90,7 +75,6 @@ object euler54 {
     }
     
     def onePair(hand1: Array[Int], hand2: Array[Int]): Int = {
-      //must be checked after the two pair and three of a kind to avoid false positives
       val pair1 = hand1.filter(x => hand1.count(x == _) > 1)
       val pair2 = hand2.filter(x => hand2.count(x == _) > 1)
       if(pair2.isEmpty && !pair1.isEmpty) 1
