@@ -123,15 +123,6 @@ object euler54 {
       else 0
     }
 
-    def handProcessor(hands: Array[Array[String]], index: Int): Array[Array[_ >: String with Int]] = {
-      val hn1 = hands(index).slice(0, 5).map(x => x(0)).map(_.toString).map(x => numConvert(x))
-      val hn2 = hands(index).slice(5, 11).map(x => x(0)).map(_.toString).map(x => numConvert(x))
-      val hs1 = hands(index).slice(0, 5).map(_.toString).map(x => x(1).toString)
-      val hs2 = hands(index).slice(5, 11).map(_.toString).map(x => x(1).toString)
-      val handsArray = Array(hn1, hs1, hn2, hs2)
-      handsArray
-    }
-
     val testList = List(royalFlush _, straightFlush _, fourKind _,
       fullHouse _, flush _, straight _, threeKind _,
       twoPairs _, onePair _, highCard _)
