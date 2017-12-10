@@ -46,9 +46,7 @@ object euler89 {
       n <- answers
     } yield n.length).reduceLeft(_ + _)
     
-    val answer = oldDigitCount - newDigitCount
-    
-    println("Answer: " + answer)
-    
+    val answer = oldDigitCount - newDigitCount 
+    println("Answer: " + answer)  
   }
 }
