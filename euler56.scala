@@ -1,7 +1,7 @@
 /*
  * Project Euler
  * Problem 56
- * "Considering natural numbers of the form, ab, where a, b < 100, what is the maximum digital sum?"
+ * "Considering natural numbers of the form, a^b, where a, b < 100, what is the maximum digital sum?"
  * December 13, 2017
 */
 object euler56 {
