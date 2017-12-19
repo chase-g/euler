@@ -13,7 +13,7 @@ object euler92 {
     def chain(number: Int, links: List[Int] = List()): Unit = {
       val next = number.toString.toList.map(_.toString).map(_.toInt).map(x => x * x).sum
       if (next == 89) for (i <- number :: links) blank(i) = true
-      else if (next == 1) for (i <- number :: links) blank(i) = false
+      else if (next == 1) ()
       else {
         chain(next, number :: links)
       }
