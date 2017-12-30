@@ -16,7 +16,7 @@ object euler89 {
       else translate(number, index + 1, acc - roman(number(index)))
     }
     
-    def toRoman(num: Int, acc: List[Char] = List('_')): List[Char] = {
+    def toRoman(num: Int, acc: List[Char] = List()): List[Char] = {
       if(num - 1000 >= 0) toRoman(num - 1000, 'M' :: acc)
       else if(num - 900 >= 0) toRoman(num - 900, 'M' :: 'C' :: acc)
       else if(num - 500 >= 0) toRoman(num - 500, 'D' :: acc)
@@ -30,7 +30,7 @@ object euler89 {
       else if(num - 5 >= 0) toRoman(num - 5, 'V' :: acc)
       else if(num - 4 >= 0) toRoman(num - 4, 'V' :: 'I' :: acc)
       else if(num - 1 >= 0) toRoman(num - 1, 'I' :: acc)
-      else acc.reverse.filter(x => x != '_')
+      else acc.reverse
     }
     
     import scala.io.Source
