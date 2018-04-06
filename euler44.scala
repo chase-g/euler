@@ -16,14 +16,7 @@ object euler44 {
       val answer = x * (3 * x - 1) / 2
       answer
     }
-
-    def createPent(start: Long, stop: Long, runningList: List[Long] = List()): List[Long] = {
-      val pent = pentagon(start)
-      val pentList = pent :: runningList
-      if (start == stop) return pentList
-      else createPent(start + 1, stop, pentList)
-    }
-
+    
     def recur(x: Long, running: List[Long] = List()): Long = {
       val xp = pentagon(x)
       val pentList = xp :: running
