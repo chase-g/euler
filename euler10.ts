@@ -9,9 +9,7 @@ var total = 0;
 //loop over every number up to limit
 for(var i = 2; i < notPrime.length; i++){
   //check whether i is already in notPrime array
-  if(notPrime[i] == true){
-    //already in notPrime so do nothing
-  } else{
+  if(notPrime[i] != true){
 //if prime:
     total += i;
     //loop through multiples of i and make them true
