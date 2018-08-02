@@ -1,8 +1,7 @@
 /* Euler 51
  * "Find the smallest prime which, by replacing part of the number (not necessarily adjacent digits) with the same digit, is part of an eight prime value family."
  * August 1, 2018
- * */
-import scala.util.control.Breaks._
+ */
 import scala.collection.mutable.ListBuffer
 import scala.collection.mutable.ArrayBuffer
 
